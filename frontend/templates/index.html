@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... other head elements ... -->
+    <style>
+        .card {
+            border: 2px solid #000;
+            border-radius: 10px;
+            width: 400px;
+            height: 600px;
+            margin-right: 20px; /* Add margin to create space between cards */
+            overflow: hidden; /* Hide overflow content */
+            float: left; /* Align cards from left to right */
+        }
+
+        .card-img-top {
+            width: 400px; /* Set the width of the image */
+            height: 50%; /* Set the height of the image to fill the entire card height */
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 10px;
+            height: 100%; /* Set the height of the card body to fill the entire card height */
+            box-sizing: border-box; /* Include padding and border in total height */
+        }
+
+        .card-title {
+            font-size: 1.2rem; /* Adjust the font size for the title */
+            margin-bottom: 5px; /* Add margin to separate title and text */
+        }
+
+        .card-location {
+            border: 3px solid #00f;
+            padding: 5px;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 0.8rem; /* Adjust the font size for the location */
+        }
+
+        .card-text {
+            font-size: 1rem; /* Adjust the font size for the description */
+        }
+    </style>
+</head>
+<body>
+    <!-- ... navbar ... -->
+
+    <!-- Content -->
+    <div class="container mt-4">
+        {% for site in topsites %}
+            <div class="card">
+                <img src="{{ MEDIA_URL }}{{ site.image }}" class="card-img-top" alt="{{ site.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ site.name }}</h5>
+                    <p class="card-text">
+                        <span class="card-location">{{ site.location }}</span>
+                    </p>
+                    <p class="card-text">{{ site.description }}</small></p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-pzjw8f+ua/C6D5NpXUmlrJsMRDi9P3p1LGWI+YcbzG9+mkUc6ZqO8Wx7/uxHqUZM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
